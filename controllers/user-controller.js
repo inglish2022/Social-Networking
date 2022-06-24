@@ -12,7 +12,7 @@ const userController = {
     },
     //create a new user
     createUsers({body}, res)  {
-        Users.create(body)
+        User.create(body)
         .then(dbUsersData => res.json(dbUsersData))
         .catch(err => res.status(400).json(err));
     }, 
@@ -24,7 +24,7 @@ const userController = {
     },
     //update user
     updateUsers({params, body}, res) {
-        Users.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
+        User.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
         .then(dbUsersData => {
             if(!dbUsersData) {
                 res.status(404).json({message: 'No User with this id!'});
@@ -36,7 +36,7 @@ const userController = {
     },
     //delete user
     deleteUsers({params}, res) {
-        Users.findOneAndDelete({_id: params.id})
+        User.findOneAndDelete({_id: params.id})
         .then(dbUsersData => {
             if(!dbUsersData) {
                 res.status(404).json({message: 'No User with this id!'});
@@ -48,7 +48,7 @@ const userController = {
     },
     //add a friend
     addFriend({params}, res) {
-        Users.findOneAndUpdate({_id: params.id}, {$push: { friends: params.friendId}}, {new: true})
+        User.findOneAndUpdate({_id: params.id}, {$push: { friends: params.friendId}}, {new: true})
         .populate({path: 'friends', select: ('-__v')})
         .select('-__v')
         .then(dbUsersData => {
@@ -63,7 +63,7 @@ const userController = {
 
     // Delete a current Friend
     deleteFriend({ params }, res) {
-        Users.findOneAndUpdate({_id: params.id}, {$pull: { friends: params.friendId}}, {new: true})
+        User.findOneAndUpdate({_id: params.id}, {$pull: { friends: params.friendId}}, {new: true})
         .populate({path: 'friends', select: '-__v'})
         .select('-__v')
         .then(dbUsersData => {
