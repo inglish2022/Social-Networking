@@ -33,7 +33,7 @@ const thoughtsController = {
     },
 
     // Get a certain thought by ID
-    getThoughtsById({params}, res) {
+    getThoughtById({params}, res) {
         Thoughts.findOne({ _id: params.id })
         .populate({path: 'reactions',select: '-__v'})
         .select('-__v')
@@ -51,7 +51,7 @@ const thoughtsController = {
     },
 
     // Update a current thought by ID
-    updateThoughts({params, body}, res) {
+    updateThought({params, body}, res) {
         Thoughts.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
         .populate({path: 'reactions', select: '-__v'})
         .select('-___v')
@@ -66,7 +66,7 @@ const thoughtsController = {
     },
 
     // Delete a current thought by ID
-    deleteThoughts({params}, res) {
+    deleteThought({params}, res) {
         Thoughts.findOneAndDelete({_id: params.id})
         .then(dbThoughtsData => {
             if (!dbThoughtsData) {
