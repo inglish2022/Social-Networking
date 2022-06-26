@@ -22,8 +22,11 @@ User runs ```npm install```
 
 
 GET routes
+
 ![Video of application](./assets/gifs/GETroutes.gif)
+
 POST PUT DELETE routes
+
 ![Video of application](./assets/gifs/POSTPUTroutes.gif)
 
 Or the link to demo videos here
