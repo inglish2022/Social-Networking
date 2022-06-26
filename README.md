@@ -20,6 +20,19 @@ For installation user needs to run ```npm init``` and ```npm install```
 
 User runs ```npm install```
 
+
+GET routes
+![Video of application](./assets/gifs/GETroutes.gif)
+POST PUT DELETE routes
+![Video of application](./assets/gifs/POSTPUTroutes.gif)
+
+Or the link to demo videos here
+GET
+https://drive.google.com/file/d/1eEaMHmqsmqlIUJASBidMpAun8aks_BVx/view
+PUT POST
+https://drive.google.com/file/d/10FzkgrR1_LQcgKHHR61sPFzIXKeGsMTh/view
+
+
 ## Contributing
 
 Inglish Foust
